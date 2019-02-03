@@ -1,0 +1,226 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>@alanqthomas/option</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">@alanqthomas/option</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1> @alanqthomas/option</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<h1 id="option">Option</h1>
+				<p><em>Option type for Typescript based on the <a href="https://github.com/scala/scala/blob/2.13.x/src/library/scala/Option.scala">Scala Option type</a></em></p>
+				<p>If you&#39;re already familliar with type <code>Option</code> type, this should work more or less like you would expect it to.</p>
+				<p>Issues and PRs are welcome if you find any bugs in the code.</p>
+				<h2 id="install">Install</h2>
+				<p><code>yarn add @alanqthomas/option</code></p>
+				<p><code>npm install @alanqthomas/option</code></p>
+				<h2 id="examples">Examples</h2>
+				<p>See the typedoc documentation for more specific type info.</p>
+				<h3 id="import">Import</h3>
+				<p><code>import { Option, Some, None } from &#39;@alanqthomas/option&#39;</code></p>
+				<h3 id="constructors">Constructors</h3>
+				<p>Convenience methods to create new options without using <code>new</code>. This also means that the <em>real</em> classes behind them are suffixed with an <code>_</code>, e.g. <code>Option_</code>.</p>
+				<pre><code><span class="hljs-variable">const</span> <span class="hljs-variable">someVal</span> = <span class="hljs-function"><span class="hljs-title">Option</span>(<span class="hljs-number">42</span>)</span>
+              = <span class="hljs-function"><span class="hljs-title">Some</span>(<span class="hljs-number">42</span>)</span>
+<span class="hljs-variable">const</span> <span class="hljs-variable">noneVal</span> = <span class="hljs-variable">None</span>
+              = <span class="hljs-function"><span class="hljs-title">Option</span>(<span class="hljs-variable"><span class="hljs-literal">null</span></span>)</span>
+              = <span class="hljs-function"><span class="hljs-title">Option</span>(<span class="hljs-variable">undefined</span>)</span>
+              = <span class="hljs-variable">Option</span>.empty&lt;<span class="hljs-variable">WhateverType</span>&gt;()</code></pre><p><code>Option.empty</code> is useful is you need a <code>None</code> that conforms to a certain type.</p>
+				<hr>
+				<p>Let&#39;s use these values for our examples (<code>A</code> will be <code>number</code>):</p>
+				<pre><code>// <span class="hljs-keyword">Option</span>&lt;<span class="hljs-type">Int</span>&gt;
+const <span class="hljs-keyword">some</span> = <span class="hljs-keyword">Some</span>(<span class="hljs-number">42</span>)
+const <span class="hljs-keyword">none</span> = <span class="hljs-keyword">Option</span>.empty&lt;number&gt;()</code></pre><h3 id="nonempty"><code>NonEmpty</code></h3>
+				<p>Type alias for a non-null type:</p>
+				<p><code>type NonEmpty = string | number | boolean | symbol | object</code></p>
+				<h3 id="isempty-boolean"><code>isEmpty(): boolean</code></h3>
+				<pre><code><span class="hljs-keyword">some</span>.isEmpty() // <span class="hljs-keyword">false</span>
+<span class="hljs-keyword">none</span>.isEmpty() // <span class="hljs-keyword">true</span></code></pre><h3 id="isdefined-boolean"><code>isDefined(): boolean</code></h3>
+				<pre><code>some.isDefined<span class="hljs-params">()</span> <span class="hljs-string">//</span> <span class="hljs-literal">true</span>
+none.isDefined<span class="hljs-params">()</span> <span class="hljs-string">//</span> <span class="hljs-literal">false</span></code></pre><h3 id="nonempty-boolean-alias-for-isdefined-"><code>nonEmpty(): boolean</code> (alias for <code>isDefined</code>)</h3>
+				<pre><code>some.isDefined<span class="hljs-params">()</span> <span class="hljs-string">//</span> <span class="hljs-literal">true</span>
+none.isDefined<span class="hljs-params">()</span> <span class="hljs-string">//</span> <span class="hljs-literal">false</span></code></pre><h3 id="get-a"><code>get(): A</code></h3>
+				<pre><code>some.<span class="hljs-built_in">get</span>()<span class="hljs-comment"> // 42</span>
+<span class="hljs-literal">none</span>.<span class="hljs-built_in">get</span>()<span class="hljs-comment"> // throws ReferenceError!!</span></code></pre><h3 id="getorelse-e-a-optiona"><code>getOrElse(e: A): Option&lt;A&gt;</code></h3>
+				<pre><code>some.getOrElse(<span class="hljs-number">0</span>) <span class="hljs-comment">// 42</span>
+none.getOrElse(<span class="hljs-number">0</span>) <span class="hljs-comment">// 0</span></code></pre><h3 id="orelse-alt-optiona-optiona"><code>orElse(alt: Option&lt;A&gt;): Option&lt;A&gt;</code></h3>
+				<pre><code><span class="hljs-keyword">some</span>.orElse(<span class="hljs-keyword">Some</span>(<span class="hljs-number">0</span>)) // <span class="hljs-keyword">Some</span>(<span class="hljs-number">42</span>)
+<span class="hljs-keyword">none</span>.orElse(<span class="hljs-keyword">Some</span>(<span class="hljs-number">0</span>)) // <span class="hljs-keyword">Some</span>(<span class="hljs-number">0</span>)</code></pre><h3 id="mapb-extends-nonempty-f-a-a-b-optionb"><code>map&lt;B extends NonEmpty&gt;(f: (a: A) =&gt; B): Option&lt;B&gt;</code></h3>
+				<pre><code>some.map(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x + <span class="hljs-number">2</span>) <span class="hljs-comment">// Some(44)</span>
+none.map(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x + <span class="hljs-number">2</span>) <span class="hljs-comment">// None</span></code></pre><h3 id="flatmapb-extends-nonempty-f-a-a-optionb-optionb"><code>flatMap&lt;B extends NonEmpty&gt;(f: (a: A) =&gt; Option&lt;B&gt;): Option&lt;B&gt;</code></h3>
+				<pre><code>some.flat<span class="hljs-constructor">Map(<span class="hljs-params">x</span> =&gt; Some(<span class="hljs-params">x</span> + 2)</span>) <span class="hljs-comment">// Some(44)</span>
+none.flat<span class="hljs-constructor">Map(<span class="hljs-params">x</span> =&gt; Some(<span class="hljs-params">x</span> + 2)</span>) <span class="hljs-comment">// None</span></code></pre><h3 id="foldb-extends-nonempty-b-b-f-a-a-b-b"><code>fold&lt;B extends NonEmpty&gt;(b: B, f: (a: A) =&gt; B): B</code></h3>
+				<pre><code>some.fold(<span class="hljs-number">0</span>, x =&gt; x + <span class="hljs-number">2</span>) <span class="hljs-comment">// 44</span>
+none.fold(<span class="hljs-number">0</span>, x =&gt; x + <span class="hljs-number">2</span>) <span class="hljs-comment">// 0</span></code></pre><h3 id="filter-p-a-a-boolean-optiona"><code>filter(p: (a: A) =&gt; boolean): Option&lt;A&gt;</code></h3>
+				<pre><code>some.filter(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x === <span class="hljs-number">42</span>) <span class="hljs-comment">// Some(42)</span>
+none.filter(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x === <span class="hljs-number">42</span>) <span class="hljs-comment">// None</span></code></pre><h3 id="filternot-p-a-a-boolean-optiona"><code>filterNot(p: (a: A) =&gt; boolean): Option&lt;A&gt;</code></h3>
+				<pre><code>some.filter<span class="hljs-constructor">Not(<span class="hljs-params">x</span> =&gt; <span class="hljs-params">x</span> <span class="hljs-operator">==</span>= 0)</span> <span class="hljs-comment">// Some(42)</span>
+none.filter<span class="hljs-constructor">Not(<span class="hljs-params">x</span> =&gt; <span class="hljs-params">x</span> <span class="hljs-operator">==</span>= 0)</span> <span class="hljs-comment">// None</span></code></pre><h3 id="contains-elem-a-boolean"><code>contains(elem: A): boolean</code></h3>
+				<pre><code>some.<span class="hljs-keyword">contains</span>(<span class="hljs-number">42</span>)<span class="hljs-comment"> // true</span>
+<span class="hljs-literal">none</span>.<span class="hljs-keyword">contains</span>(<span class="hljs-number">42</span>)<span class="hljs-comment"> // false</span></code></pre><h3 id="exists-p-a-a-boolean-boolean"><code>exists(p: (a: A) =&gt; boolean): boolean</code></h3>
+				<pre><code>some.exists<span class="hljs-params">(<span class="hljs-attr">x</span> =&gt; <span class="hljs-attr">x</span> === 42)</span> <span class="hljs-string">//</span> <span class="hljs-literal">true</span>
+none.exists<span class="hljs-params">(<span class="hljs-attr">x</span> =&gt; <span class="hljs-attr">x</span> === 42)</span> <span class="hljs-string">//</span> <span class="hljs-literal">false</span></code></pre><h3 id="forall-p-a-a-boolean-boolean"><code>forall(p: (a: A) =&gt; boolean): boolean</code></h3>
+				<pre><code>some.forall<span class="hljs-params">(<span class="hljs-attr">x</span> =&gt; <span class="hljs-attr">x</span> === 42)</span> <span class="hljs-string">//</span> <span class="hljs-literal">true</span>
+none.forall<span class="hljs-params">(<span class="hljs-attr">x</span> =&gt; <span class="hljs-attr">x</span> === 42)</span> <span class="hljs-string">//</span> <span class="hljs-literal">true</span></code></pre><h3 id="foreachb-f-a-a-b-void"><code>foreach&lt;B&gt;(f: (a: A) =&gt; B): void</code></h3>
+				<pre><code>some.foreach(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(x)) <span class="hljs-comment">// prints 42</span>
+none.foreach(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(x)) <span class="hljs-comment">// doesn't print</span></code></pre><h3 id="toarray-arraya"><code>toArray(): Array&lt;A&gt;</code></h3>
+				<pre><code>some.<span class="hljs-keyword">to</span><span class="hljs-constructor">Array()</span> <span class="hljs-comment">// [42]</span>
+none.<span class="hljs-keyword">to</span><span class="hljs-constructor">Array()</span> <span class="hljs-comment">// []</span></code></pre><h3 id="matchb-c-matches-b-c"><code>match&lt;B, C&gt;(matches): B | C</code></h3>
+				<p><code>matches</code> is an object of shape:</p>
+				<pre><code>matches: {
+  none: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> C,
+  some: <span class="hljs-function"><span class="hljs-params">(a: A)</span> =&gt;</span> B
+}</code></pre><p>Of course, order doesn&#39;t matter in an object, so you can put in the <code>some</code> or <code>none</code> function in the order you want</p>
+				<pre><code>some.match({
+  <span class="hljs-attr">some</span>: <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x + <span class="hljs-number">2</span>,
+  <span class="hljs-attr">none</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-number">0</span>
+}) <span class="hljs-comment">// 44</span>
+
+none.match({
+  <span class="hljs-attr">some</span>: <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x + <span class="hljs-number">2</span>,
+  <span class="hljs-attr">none</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-number">0</span>
+}) <span class="hljs-comment">// 0</span></code></pre>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_option_.html">"option"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
