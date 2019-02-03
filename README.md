@@ -24,7 +24,7 @@ Generate Docs:
 `yarn docs`
 
 ## Examples
-See the typedoc documentation for more specific type info.
+See the [TypeDoc documentation](https://alanqthomas.io/option) for more specific type info.
 
 ### Import
 `import { Option, Some, None } from '@alanqthomas/option'`
