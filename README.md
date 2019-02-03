@@ -10,6 +10,19 @@ Issues and PRs are welcome if you find any bugs in the code.
 
 `npm install @alanqthomas/option`
 
+## Development
+Test with watch:
+`yarn test`
+
+Test once:
+`yarn testOnce`
+
+Build Typescript:
+`yarn build`
+
+Generate Docs:
+`yarn docs`
+
 ## Examples
 See the typedoc documentation for more specific type info.
 
